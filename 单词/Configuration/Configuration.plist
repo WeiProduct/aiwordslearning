@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>appName</key>
+    <string>AI背单词</string>
+    <key>version</key>
+    <string>1.0.0</string>
+    <key>defaultDailyGoal</key>
+    <integer>25</integer>
+    <key>defaultSessionSize</key>
+    <integer>20</integer>
+    <key>masteryThreshold</key>
+    <real>0.8</real>
+    <key>minLearningCount</key>
+    <integer>3</integer>
+    <key>animationDuration</key>
+    <real>0.5</real>
+    <key>cornerRadius</key>
+    <real>16</real>
+    <key>cardPadding</key>
+    <real>20</real>
+    <key>buttonHeight</key>
+    <real>54</real>
+    <key>cacheExpiry</key>
+    <integer>600</integer>
+    <key>maxRetries</key>
+    <integer>3</integer>
+    <key>speechRate</key>
+    <real>0.6</real>
+    <key>speechVolume</key>
+    <real>1.0</real>
+    <key>enableAnalytics</key>
+    <false/>
+    <key>enableCrashReporting</key>
+    <true/>
+    <key>features</key>
+    <dict>
+        <key>enableVoiceRecognition</key>
+        <false/>
+        <key>enableOfflineMode</key>
+        <true/>
+        <key>enableGameMode</key>
+        <true/>
+        <key>enableSocialFeatures</key>
+        <false/>
+    </dict>
+</dict>
+</plist>

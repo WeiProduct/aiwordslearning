@@ -10,46 +10,36 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
+    @Query private var userProgress: [UserProgress]
+    
+    @State private var showWelcome = true
+    
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        Group {
+            if showWelcome {
+                WelcomeView()
+            } else {
+                MainTabView()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+        }
+        .onAppear {
+            // 检查是否为首次启动
+            checkFirstLaunch()
         }
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+    
+    private func checkFirstLaunch() {
+        // 如果用户进度存在，说明不是首次启动
+        if let progress = userProgress.first, progress.totalWordsLearned > 0 {
+            showWelcome = false
         }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+        
+        // 延迟3秒后自动进入主应用（仅在首次启动时）
+        if showWelcome {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                    showWelcome = false
+                }
             }
         }
     }
@@ -57,5 +47,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [Word.self, UserProgress.self, StudySession.self], inMemory: true)
 }
