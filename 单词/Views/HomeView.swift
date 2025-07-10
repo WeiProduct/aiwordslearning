@@ -10,6 +10,8 @@ struct HomeView: View {
     @State private var todayStudiedWords = 0
     @State private var currentStreak = 0
     @State private var totalLearned = 0
+    @State private var showVocabularySelection = false
+    @State private var selectedVocabularyCategory: String?
     
     var body: some View {
         NavigationView {
@@ -35,6 +37,10 @@ struct HomeView: View {
             .navigationTitle("主页")
             .onAppear {
                 loadUserStats()
+                loadSelectedVocabulary()
+            }
+            .sheet(isPresented: $showVocabularySelection) {
+                VocabularySelectionView()
             }
         }
     }
@@ -68,6 +74,35 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                     }
+            }
+            
+            // 词汇选择按钮
+            Button(action: { showVocabularySelection = true }) {
+                HStack {
+                    Image(systemName: "books.vertical.fill")
+                        .foregroundColor(.blue)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("当前词汇库")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        
+                        Text(getVocabularyCategoryName())
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.secondary)
+                        .font(.caption)
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
             }
         }
         .padding()
@@ -224,6 +259,18 @@ struct HomeView: View {
             Calendar.current.startOfDay(for: session.date) == today
         }
         todayStudiedWords = todaySessions.reduce(0) { $0 + $1.wordsStudied }
+    }
+    
+    private func loadSelectedVocabulary() {
+        selectedVocabularyCategory = UserDefaults.standard.string(forKey: "selectedVocabularyCategory")
+    }
+    
+    private func getVocabularyCategoryName() -> String {
+        guard let categoryString = selectedVocabularyCategory,
+              let category = VocabularyCategory(rawValue: categoryString) else {
+            return "默认词汇库"
+        }
+        return category.displayName
     }
 }
 

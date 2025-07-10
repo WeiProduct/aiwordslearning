@@ -13,6 +13,8 @@ struct SettingsView: View {
     @State private var soundEnabled = true
     @State private var showingResetAlert = false
     @State private var showingAbout = false
+    @State private var showingVocabularySelection = false
+    @State private var selectedVocabularyCategory: String?
     
     var body: some View {
         NavigationView {
@@ -46,6 +48,12 @@ struct SettingsView: View {
             }
             .sheet(isPresented: $showingAbout) {
                 AboutView()
+            }
+            .sheet(isPresented: $showingVocabularySelection) {
+                VocabularySelectionView()
+            }
+            .onAppear {
+                loadSelectedVocabulary()
             }
         }
     }
@@ -98,6 +106,27 @@ struct SettingsView: View {
     
     private var studySettingsSection: some View {
         Section {
+            // 词汇选择
+            Button(action: { showingVocabularySelection = true }) {
+                HStack {
+                    Image(systemName: "books.vertical.fill")
+                        .foregroundColor(.orange)
+                        .frame(width: 24)
+                    
+                    Text("词汇库")
+                    
+                    Spacer()
+                    
+                    Text(getVocabularyCategoryName())
+                        .foregroundColor(.secondary)
+                    
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.secondary)
+                        .font(.caption)
+                }
+            }
+            .foregroundColor(.primary)
+            
             // 每日目标
             HStack {
                 Image(systemName: "target")
@@ -399,6 +428,18 @@ struct SettingsView: View {
     private func importData() {
         // 实现数据导入功能
         print("导入数据")
+    }
+    
+    private func loadSelectedVocabulary() {
+        selectedVocabularyCategory = UserDefaults.standard.string(forKey: "selectedVocabularyCategory")
+    }
+    
+    private func getVocabularyCategoryName() -> String {
+        guard let categoryString = selectedVocabularyCategory,
+              let category = VocabularyCategory(rawValue: categoryString) else {
+            return "默认词汇库"
+        }
+        return category.displayName
     }
 }
 

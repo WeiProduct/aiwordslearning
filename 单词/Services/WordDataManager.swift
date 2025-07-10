@@ -46,7 +46,14 @@ class WordDataManager: WordDataProviding {
             return cachedWords
         }
         
-        return await fetchWordsFromDatabase()
+        var words = await fetchWordsFromDatabase()
+        
+        // 检查是否有选中的词汇分类
+        if let selectedCategory = UserDefaults.standard.string(forKey: "selectedVocabularyCategory") {
+            words = words.filter { $0.vocabularyTags.contains(selectedCategory) }
+        }
+        
+        return words
     }
     
     func searchWords(query: String) async throws -> [Word] {

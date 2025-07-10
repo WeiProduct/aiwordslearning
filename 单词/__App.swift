@@ -17,6 +17,9 @@ struct 单词App: App {
     // 创建数据管理器
     @State private var wordDataManager = WordDataManager()
     
+    // 创建扩展词汇管理器
+    @StateObject private var extendedWordManager = ExtendedWordDataManager()
+    
     // 创建语音管理器
     @StateObject private var speechManager = SpeechManager()
     
@@ -36,6 +39,7 @@ struct 单词App: App {
             ContentView()
                 .modelContainer(modelContainer)
                 .environmentObject(wordDataManager)
+                .environmentObject(extendedWordManager)
                 .environmentObject(speechManager)
                 .onAppear {
                     initializeApp()
@@ -52,6 +56,9 @@ struct 单词App: App {
         
         // 设置数据管理器的模型上下文
         wordDataManager.setModelContext(modelContainer.mainContext)
+        
+        // 设置扩展词汇管理器的模型上下文
+        extendedWordManager.setModelContext(modelContainer.mainContext)
         
         print("应用启动初始化完成")
     }

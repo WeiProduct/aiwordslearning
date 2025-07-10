@@ -16,6 +16,7 @@ final class Word: @unchecked Sendable {
     var correctCount: Int
     var lastStudyDate: Date?
     var createdDate: Date
+    var vocabularyTags: [String]
     
     init(english: String, chinese: String, pronunciation: String = "", partOfSpeech: String = "", example: String = "", exampleTranslation: String = "", difficulty: Int = 1) {
         self.english = english
@@ -31,6 +32,7 @@ final class Word: @unchecked Sendable {
         self.correctCount = 0
         self.lastStudyDate = nil
         self.createdDate = Date()
+        self.vocabularyTags = []
     }
     
     var accuracy: Double {
