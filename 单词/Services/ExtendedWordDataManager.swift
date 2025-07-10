@@ -9,7 +9,31 @@ final class ExtendedWordDataManager: ObservableObject {
     @Published var errorMessage: String?
     @Published var availableCategories: [VocabularyCategory] = []
     
-    private let jsonBasePath = "/Users/weifu/Downloads/english-vocabulary-master/json_original/json-simple"
+    // 使用 Bundle 中的文件路径
+    private var jsonBasePath: String {
+        // 首先尝试从应用 Bundle 中读取
+        if let bundlePath = Bundle.main.resourcePath {
+            let vocabularyPath = (bundlePath as NSString).appendingPathComponent("Vocabulary")
+            if FileManager.default.fileExists(atPath: vocabularyPath) {
+                return (vocabularyPath as NSString).appendingPathComponent("json-simple")
+            }
+        }
+        
+        // 开发时使用的本地路径（仅在模拟器中可用）
+        #if targetEnvironment(simulator)
+        let downloadsPath = "/Users/weifu/Downloads/english-vocabulary-master/json_original/json-simple"
+        if FileManager.default.fileExists(atPath: downloadsPath) {
+            return downloadsPath
+        }
+        #endif
+        
+        // 返回文档目录路径作为备选
+        if let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            return documentsPath.appendingPathComponent("Vocabulary/json-simple").path
+        }
+        
+        return ""
+    }
     private var modelContext: ModelContext?
     private let logger = AppLogger.shared
     
@@ -25,19 +49,30 @@ final class ExtendedWordDataManager: ObservableObject {
     }
     
     // MARK: - 检查可用的词汇分类
-    private func checkAvailableCategories() {
+    func checkAvailableCategories() {
         availableCategories = []
         
-        for category in VocabularyCategory.allCases {
-            let files = getFilesForCategory(category)
-            if !files.isEmpty {
-                // 检查文件是否存在
-                let fileExists = files.contains { file in
-                    FileManager.default.fileExists(atPath: "\(jsonBasePath)/\(file)")
+        // 如果有实际文件路径，检查文件
+        if !jsonBasePath.isEmpty {
+            for category in VocabularyCategory.allCases {
+                let files = getFilesForCategory(category)
+                if !files.isEmpty {
+                    // 检查文件是否存在
+                    let fileExists = files.contains { file in
+                        FileManager.default.fileExists(atPath: "\(jsonBasePath)/\(file)")
+                    }
+                    if fileExists {
+                        availableCategories.append(category)
+                    }
                 }
-                if fileExists {
-                    availableCategories.append(category)
-                }
+            }
+        }
+        
+        // 如果没有找到文件，使用模拟数据提供的分类
+        if availableCategories.isEmpty {
+            let mockProvider = MockVocabularyDataProvider.shared
+            availableCategories = VocabularyCategory.allCases.filter { category in
+                mockProvider.hasDataForCategory(category)
             }
         }
         
@@ -135,34 +170,59 @@ final class ExtendedWordDataManager: ObservableObject {
     
     // MARK: - 从文件加载词汇
     private func loadWordsFromFiles(category: VocabularyCategory) async throws -> [Word] {
-        let files = getFilesForCategory(category)
-        var allWords: [Word] = []
-        
-        for (index, file) in files.enumerated() {
-            let filePath = "\(jsonBasePath)/\(file)"
+        // 首先尝试从文件加载
+        if !jsonBasePath.isEmpty {
+            let files = getFilesForCategory(category)
+            var allWords: [Word] = []
             
-            guard FileManager.default.fileExists(atPath: filePath) else {
-                logger.warning("File not found: \(file)", category: .database)
-                continue
+            for (index, file) in files.enumerated() {
+                let filePath = "\(jsonBasePath)/\(file)"
+                
+                guard FileManager.default.fileExists(atPath: filePath) else {
+                    logger.warning("File not found: \(file)", category: .database)
+                    continue
+                }
+                
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                    let jsonWords = try JSONDecoder().decode([JSONWord].self, from: data)
+                    
+                    // 转换为 Word 模型
+                    let words = jsonWords.compactMap { jsonWord -> Word? in
+                        createWord(from: jsonWord, category: category)
+                    }
+                    
+                    allWords.append(contentsOf: words)
+                    
+                    // 更新进度
+                    await MainActor.run {
+                        self.loadingProgress = Double(index + 1) / Double(files.count)
+                    }
+                } catch {
+                    logger.warning("Failed to load file \(file): \(error)", category: .database)
+                }
             }
             
-            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
-            let jsonWords = try JSONDecoder().decode([JSONWord].self, from: data)
-            
-            // 转换为 Word 模型
-            let words = jsonWords.compactMap { jsonWord -> Word? in
-                createWord(from: jsonWord, category: category)
-            }
-            
-            allWords.append(contentsOf: words)
-            
-            // 更新进度
-            await MainActor.run {
-                self.loadingProgress = Double(index + 1) / Double(files.count)
+            if !allWords.isEmpty {
+                return allWords
             }
         }
         
-        return allWords
+        // 如果文件加载失败，使用模拟数据
+        logger.info("Using mock data for \(category.displayName)", category: .database)
+        let mockProvider = MockVocabularyDataProvider.shared
+        let mockWords = mockProvider.getMockWords(for: category)
+        
+        let words = mockWords.compactMap { jsonWord -> Word? in
+            createWord(from: jsonWord, category: category)
+        }
+        
+        // 模拟加载进度
+        await MainActor.run {
+            self.loadingProgress = 1.0
+        }
+        
+        return words
     }
     
     // MARK: - 创建 Word 对象
