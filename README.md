@@ -48,7 +48,6 @@ AI背单词是一款智能英语词汇学习应用，采用先进的AI技术和�
 ├── style.css           # 样式文件
 ├── script.js           # JavaScript交互
 └── images/             # 图片资源
-    ├── app-icon.png
     ├── app-mockup.png
     ├── screenshot-*.png
     └── ...
@@ -57,10 +56,10 @@ AI背单词是一款智能英语词汇学习应用，采用先进的AI技术和�
 ## 技术栈
 
 - **前端**: HTML5, CSS3, JavaScript (ES6+)
-- **字体**: Inter (Google Fonts)
 - **图标**: Custom SVG icons
 - **响应式设计**: CSS Grid + Flexbox
 - **交互效果**: CSS Animations + JavaScript
+- **外部依赖**: 无 CDN 字体或图标依赖，适合 GitHub Pages 稳定托管
 
 ## 浏览器支持
 
@@ -98,13 +97,13 @@ https://weiproduct.github.io/aiwordslearning/
 
 ## 联系方式
 
-- **用户支持**: support@aiwordslearning.com
-- **技术问题**: bugs@aiwordslearning.com
-- **功能建议**: feedback@aiwordslearning.com
+- **用户支持**: 1597498880weiproduct@gmail.com
+- **技术问题**: 1597498880weiproduct@gmail.com
+- **功能建议**: 1597498880weiproduct@gmail.com
 
 ## 版权信息
 
-© 2024 智能学习工作室. 保留所有权利.
+© 2026 WeiProduct. 保留所有权利.
 
 ## 许可证
 
