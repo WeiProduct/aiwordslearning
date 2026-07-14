@@ -217,7 +217,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .gal-track::-webkit-scrollbar { display: none; }
 .shot { flex: 0 0 auto; scroll-snap-align: center; text-align: center; }
 .phone { width: 260px; max-width: 70vw; border-radius: 34px; padding: 10px; background: linear-gradient(160deg, #2a2a33, #0e0e12); box-shadow: var(--shadow-lg); cursor: zoom-in; }
-.phone img { width: 100%; border-radius: 26px; display: block; }
+.phone img { width: 100%; height: auto; border-radius: 26px; display: block; }
 .shot figcaption { margin-top: 16px; font-weight: 600; color: var(--text-secondary); font-size: 15px; }
 .gal-arrow { position: absolute; top: 42%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--card); color: var(--text-primary); font-size: 24px; line-height: 1; cursor: pointer; box-shadow: var(--shadow); z-index: 2; transition: all .2s; }
 .gal-arrow:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
