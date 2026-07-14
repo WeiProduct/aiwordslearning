@@ -1,357 +1,358 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI背单词 - 智能英语词汇学习应用</title>
-    <meta name="description" content="AI背单词是一款智能英语词汇学习应用，支持IELTS、TOEFL、GRE等多种考试词汇，采用间隔重复算法和AI推荐，提升学习效果。">
-    <meta name="keywords" content="AI背单词,英语学习,词汇学习,IELTS,TOEFL,GRE,单词记忆,间隔重复">
-    <meta name="robots" content="index,follow">
-    <meta name="theme-color" content="#007AFF">
-    <link rel="canonical" href="https://weiproduct.github.io/aiwordslearning/">
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="theme-color" content="#007AFF" id="themeColorMeta">
+    <meta name="robots" content="index, follow">
+    <title>AI背单词 - AI 驱动的智能词汇学习 | AI Vocabulary</title>
+    <meta name="description" content="AI背单词是一款智能英语词汇学习应用，基于遗忘曲线的间隔重复与 AI 推荐，支持雅思、托福、GRE、四六级等 10+ 考试词库，18,000+ 词汇，全程离线可用。">
+    <meta name="keywords" content="AI背单词,AI Vocabulary,英语学习,词汇学习,间隔重复,遗忘曲线,IELTS,TOEFL,GRE,四六级,单词记忆">
+    <meta property="og:title" content="AI背单词 | AI Vocabulary">
+    <meta property="og:description" content="AI 驱动的智能词汇学习——遗忘曲线间隔重复、AI 推荐、10+ 考试词库，全程离线可用。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://weiproduct.github.io/aiwordslearning/">
-    <meta property="og:title" content="AI背单词 - 智能英语词汇学习应用">
-    <meta property="og:description" content="采用AI技术和间隔重复算法的智能英语词汇学习应用">
     <meta property="og:image" content="https://weiproduct.github.io/aiwordslearning/images/app-preview.png">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://weiproduct.github.io/aiwordslearning/">
-    <meta property="twitter:title" content="AI背单词 - 智能英语词汇学习应用">
-    <meta property="twitter:description" content="采用AI技术和间隔重复算法的智能英语词汇学习应用">
-    <meta property="twitter:image" content="https://weiproduct.github.io/aiwordslearning/images/app-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI背单词 | AI Vocabulary">
+    <meta name="twitter:description" content="Spaced repetition built on the forgetting curve, AI recommendations, and 10+ exam decks — fully offline.">
+    <meta name="twitter:image" content="https://weiproduct.github.io/aiwordslearning/images/app-preview.png">
+    <link rel="canonical" href="https://weiproduct.github.io/aiwordslearning/">
+    <link rel="alternate" hreflang="zh-CN" href="https://weiproduct.github.io/aiwordslearning/">
+    <link rel="alternate" hreflang="en" href="https://weiproduct.github.io/aiwordslearning/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23007AFF'/%3E%3Cstop offset='1' stop-color='%235856D6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cpath d='M50 33 C42 28 30 28 24 31 V72 C30 69 42 69 50 74 C58 69 70 69 76 72 V31 C70 28 58 28 50 33 Z' fill='none' stroke='white' stroke-width='5' stroke-linejoin='round'/%3E%3Cpath d='M50 33 V74' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23007AFF'/%3E%3Cstop offset='1' stop-color='%235856D6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cpath d='M50 33 C42 28 30 28 24 31 V72 C30 69 42 69 50 74 C58 69 70 69 76 72 V31 C70 28 58 28 50 33 Z' fill='none' stroke='white' stroke-width='5' stroke-linejoin='round'/%3E%3Cpath d='M50 33 V74' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "AI背单词",
-      "alternateName": "AI Words Learning",
+      "alternateName": "AI Vocabulary",
       "applicationCategory": "EducationalApplication",
-      "operatingSystem": "iOS, iPadOS",
+      "operatingSystem": "iOS 18.0+",
       "url": "https://weiproduct.github.io/aiwordslearning/",
+      "image": "https://weiproduct.github.io/aiwordslearning/images/app-preview.png",
       "downloadUrl": "https://apps.apple.com/app/id6748568205",
-      "creator": {
-        "@type": "Organization",
-        "name": "WeiProduct",
-        "url": "https://weiproduct.com/"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "WeiProduct", "url": "https://weiproduct.com/" },
+      "description": "AI背单词是一款智能英语词汇学习应用，基于遗忘曲线的间隔重复与 AI 推荐，支持雅思、托福、GRE、四六级等 10+ 考试词库，18,000+ 词汇，全程离线可用。"
     }
     </script>
-    
-    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "AI背单词支持哪些考试词汇？", "acceptedAnswer": { "@type": "Answer", "text": "支持雅思、托福、GRE、GMAT、SAT、商务英语、大学四级、大学六级等多种考试词库，覆盖国际与国内主流考试。" } },
+        { "@type": "Question", "name": "间隔重复算法是如何工作的？", "acceptedAnswer": { "@type": "Answer", "text": "算法依据遗忘曲线，为每个单词安排复习时机：掌握得好的词复习间隔逐渐拉长，容易忘的词会更频繁出现。" } },
+        { "@type": "Question", "name": "应用需要联网吗？", "acceptedAnswer": { "@type": "Answer", "text": "不需要。所有词汇数据都存储在设备本地，支持完全离线学习，随时随地都能背单词。" } },
+        { "@type": "Question", "name": "可以收藏和标记困难单词吗？", "acceptedAnswer": { "@type": "Answer", "text": "可以。你能一键收藏重点单词，系统还会自动整理困难本和已掌握列表，方便针对性强化。" } },
+        { "@type": "Question", "name": "学习进度会保存吗？", "acceptedAnswer": { "@type": "Answer", "text": "会。学习进度会自动保存在你的设备上，已学习、已掌握、正确率等数据都会持续记录。" } }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-mark" aria-hidden="true">AI</span>
-                <span class="logo-text">AI背单词</span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#features" class="nav-link">功能特色</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#screenshots" class="nav-link">应用截图</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://apps.apple.com/app/id6748568205" class="nav-link" target="_blank" rel="noopener">立即下载</a>
-                </li>
-                <li class="nav-item">
-                    <a href="support.html" class="nav-link">支持</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
+
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a class="nav-brand" href="#" aria-label="AI背单词">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" width="34" height="34"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#007AFF"/><stop offset="1" stop-color="#5856D6"/></linearGradient></defs><rect width="100" height="100" rx="24" fill="url(#bg)"/><path d="M50 33 C42 28 30 28 24 31 V72 C30 69 42 69 50 74 C58 69 70 69 76 72 V31 C70 28 58 28 50 33 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M50 33 V74" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+                </span>
+                <span class="brand-name">AI背单词</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#how" class="nav-link" data-i18n="navHow">使用流程</a>
+                <a href="#features" class="nav-link" data-i18n="navFeatures">功能特点</a>
+                <a href="#science" class="nav-link" data-i18n="navScience">记忆科学</a>
+                <a href="#screenshots" class="nav-link" data-i18n="navScreenshots">应用截图</a>
+                <a href="#faq" class="nav-link" data-i18n="navFaq">常见问题</a>
+                <button class="icon-btn" type="button" id="themeToggle" aria-label="切换深色模式">
+                    <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                    <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+                </button>
+                <button class="lang-switch" type="button" id="langSwitch" aria-label="Switch language">EN</button>
+                <a href="https://apps.apple.com/app/id6748568205" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="navGet">获取 App</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-container">
+    <main id="main">
+    <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="gradient-text">AI驱动的</span><br>
-                        智能词汇学习
-                    </h1>
-                    <p class="hero-description">
-                        采用最新AI技术和间隔重复算法，为您提供个性化的英语词汇学习体验。
-                        支持IELTS、TOEFL、GRE等多种考试词汇库。
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="https://apps.apple.com/app/id6748568205" class="btn btn-primary" target="_blank" rel="noopener">
-                            <span class="btn-icon">📲</span>
-                            <span>App Store 下载</span>
-                        </a>
-                        <a href="#features" class="btn btn-secondary">了解更多</a>
+                <span class="eyebrow" data-i18n="heroEyebrow">✦ AI 驱动的词汇学习</span>
+                <h1 class="hero-title" data-i18n="heroTitle">AI 驱动的智能词汇学习</h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">基于遗忘曲线的间隔重复与 AI 推荐，让每一个单词都记得更牢、更久。</p>
+                <div class="hero-buttons">
+                    <a href="https://apps.apple.com/app/id6748568205" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <svg class="apple-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span class="download-label" data-i18n="downloadBtn">App Store 下载</span>
+                    </a>
+                    <a href="#how" class="btn btn-secondary" data-i18n="learnMore">了解更多</a>
+                </div>
+                <ul class="hero-trust">
+                    <li data-i18n="trust1">🔒 数据全本地</li>
+                    <li data-i18n="trust2">📶 离线可用</li>
+                    <li data-i18n="trust3">🌏 中英双语</li>
+                </ul>
+            </div>
+            <div class="hero-visual">
+                <div class="device">
+                    <div class="device-notch" aria-hidden="true"></div>
+                    <div class="fc-wrap">
+                        <div class="fc-topline">
+                            <span class="fc-progress" id="fcProgress">进度 3 / 15 词</span>
+                            <span class="fc-ai"><span class="dot" aria-hidden="true"></span><span data-i18n="fcAi">AI 智能学习</span></span>
+                        </div>
+                        <div class="fc-bar" aria-hidden="true"><i id="fcBar" style="width:20%"></i></div>
+                        <button class="flashcard" id="flashcard" type="button" aria-pressed="false" aria-label="Flashcard">
+                            <div class="fc-inner">
+                                <div class="fc-face fc-front">
+                                    <span class="fc-word">ubiquitous</span>
+                                    <span class="fc-ipa">/juːˈbɪkwɪtəs/</span>
+                                    <span class="fc-pos">adj.</span>
+                                    <span class="fc-hint" data-i18n="fcHintFront">点击卡片查看含义</span>
+                                </div>
+                                <div class="fc-face fc-back">
+                                    <span class="fc-def">无处不在的；普遍存在的</span>
+                                    <span class="fc-ex">“Smartphones have become ubiquitous in modern life.”</span>
+                                    <span class="fc-ex-zh">智能手机在现代生活中已无处不在。</span>
+                                </div>
+                            </div>
+                        </button>
+                        <div class="fc-actions">
+                            <button class="fc-btn fc-again" id="fcAgain" type="button" data-i18n="fcAgain">再学一次</button>
+                            <button class="fc-btn fc-know" id="fcKnow" type="button" data-i18n="fcKnow">认识 ✓</button>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="./images/app-mockup.png" alt="AI背单词应用界面" class="mockup-image" width="1290" height="2796" fetchpriority="high" decoding="async">
+                <div class="hero-chip chip-a" data-i18n="chipA">🔊 智能发音</div>
+                <div class="hero-chip chip-b" data-i18n="chipB">🔁 间隔复习</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="proof" aria-label="stats">
+        <div class="container proof-row">
+            <div class="proof-rating">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <div class="proof-sub"><strong>App Store</strong><span data-i18n="proofRating">教育 · 词汇学习</span></div>
+            </div>
+            <div class="proof-stats">
+                <div class="stat"><strong data-count="18000" data-suffix="+">18,000+</strong><span data-i18n="stat1">词汇量</span></div>
+                <div class="stat"><strong data-count="10" data-suffix="+">10+</strong><span data-i18n="stat2">考试词库</span></div>
+                <div class="stat"><strong data-count="100" data-suffix="%">100%</strong><span data-i18n="stat3">离线可用</span></div>
+                <div class="stat"><strong data-count="0" data-suffix="">0</strong><span data-i18n="stat4">广告 · 追踪</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="how">
+        <div class="container">
+            <h2 class="section-title" data-i18n="howTitle">三步开启高效背词</h2>
+            <p class="section-sub" data-i18n="howSub">选好目标，剩下的交给 AI。</p>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-badge">1</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></div>
+                    <h3 data-i18n="step1Title">选择你的考试目标</h3>
+                    <p data-i18n="step1Desc">从雅思、托福、GRE、四六级等 10+ 词库中，挑选你正在备考的方向。</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-badge">2</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.1 4.4 4.9.6-3.6 3.3 1 4.8L12 15.9 7.6 16.4l1-4.8L5 8.3l4.9-.6z"/></svg></div>
+                    <h3 data-i18n="step2Title">AI 生成每日学习计划</h3>
+                    <p data-i18n="step2Desc">根据你的进度和掌握情况，AI 智能推荐今天该学的新词与该复习的旧词。</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-badge">3</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c3-6 5-6 6-3s3 3 5-2 4-4 5-1"/><path d="M3 21h18"/></svg></div>
+                    <h3 data-i18n="step3Title">按遗忘曲线学习复习</h3>
+                    <p data-i18n="step3Desc">卡片式学习配合间隔重复算法，在你即将遗忘时精准提醒复习。</p>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">强大功能，助力学习</h2>
-                <p class="section-subtitle">结合先进技术与科学学习方法，打造最佳词汇学习体验</p>
-            </div>
-            
+            <h2 class="section-title" data-i18n="featuresTitle">核心功能</h2>
+            <p class="section-sub" data-i18n="featuresSub">为高效记忆而设计的每一处细节。</p>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">AI智能推荐</h3>
-                    <p class="feature-description">基于您的学习进度和掌握情况，智能推荐最适合的单词和复习计划。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.1L18 9l-4.1 1.9L12 15l-1.9-4.1L6 9l4.1-1.9z"/><path d="M5 16l.8 1.8L7.5 18.5 5.8 19.3 5 21l-.8-1.7L2.5 18.5l1.7-.7z"/><path d="M18.5 15l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg></div>
+                    <h3 data-i18n="feature1Title">AI 智能推荐</h3>
+                    <p data-i18n="feature1Desc">基于你的学习进度和掌握情况，智能推荐最适合的单词和复习计划。</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 15.5V22H13V16H11V22H9V15.5L6 13.5L7.5 12L12 15L16.5 12L18 13.5L15 15.5Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">间隔重复算法</h3>
-                    <p class="feature-description">采用科学的间隔重复学习法，根据遗忘曲线优化复习时间，提高记忆效果。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 4v4h-4"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 20v-4h4"/></svg></div>
+                    <h3 data-i18n="feature2Title">间隔重复算法</h3>
+                    <p data-i18n="feature2Desc">采用科学的间隔重复学习法，依据遗忘曲线优化复习时机，提升记忆效果。</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 14C13.66 14 15 12.66 15 11V5C15 3.34 13.66 2 12 2S9 3.34 9 5V11C9 12.66 10.34 14 12 14ZM13.5 11C13.5 11.83 12.83 12.5 12 12.5S10.5 11.83 10.5 11V5C10.5 4.17 11.17 3.5 12 3.5S13.5 4.17 13.5 5V11ZM19 11C19 14.53 16.39 17.44 13 17.93V21H11V17.93C7.61 17.44 5 14.53 5 11H7C7 13.76 9.24 16 12 16S17 13.76 17 11H19Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">智能语音合成</h3>
-                    <p class="feature-description">内置高质量语音合成功能，支持英美发音，帮助您掌握标准发音。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h3.5L13 20V4L7.5 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8.5 8.5 0 0 1 0 12"/></svg></div>
+                    <h3 data-i18n="feature3Title">智能语音发音</h3>
+                    <p data-i18n="feature3Desc">内置高质量语音合成，支持英美发音，帮助你掌握标准读音。</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6H2V20C2 21.1 2.9 22 4 22H18V20H4V6ZM20 2H8C6.9 2 6 2.9 6 4V16C6 17.1 6.9 18 8 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H8V4H20V16ZM12 5.5V13.5L16 9.5L12 5.5Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">多种考试词汇</h3>
-                    <p class="feature-description">涵盖IELTS、TOEFL、GRE、CET-4/6等多种考试词汇库，满足不同学习需求。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H12v15H5.5A1.5 1.5 0 0 0 4 20.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H12v15h6.5a1.5 1.5 0 0 1 1.5 1.5z"/></svg></div>
+                    <h3 data-i18n="feature4Title">多考试词库</h3>
+                    <p data-i18n="feature4Desc">涵盖雅思、托福、GRE、GMAT、SAT、四六级等多种考试词库，满足不同需求。</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 11H7V13H9V11ZM13 11H11V13H13V11ZM17 11H15V13H17V11ZM19 3H18V1H16V3H8V1H6V3H5C3.89 3 3.01 3.9 3.01 5L3 19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V8H19V19Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">学习进度追踪</h3>
-                    <p class="feature-description">详细的学习统计和进度追踪，帮助您了解学习成果，保持学习动力。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 20v-6M12 20v-9M16 20v-4"/></svg></div>
+                    <h3 data-i18n="feature5Title">学习进度追踪</h3>
+                    <p data-i18n="feature5Desc">已学习、已掌握、正确率一目了然，用数据看见你的每一点进步。</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7L12 12L22 7L12 2ZM2 17L12 22L22 17M2 12L12 17L22 12" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-title">手势操作</h3>
-                    <p class="feature-description">直观的手势操作设计，滑动切换单词，提升学习效率和用户体验。</p>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-6.5-4.2-8.7-8.1C1.7 8.9 3.1 5.5 6.3 5.5c1.9 0 3.1 1 3.7 2 .6-1 1.8-2 3.7-2 3.2 0 4.6 3.4 3 6.4C18.5 15.8 12 20 12 20z"/></svg></div>
+                    <h3 data-i18n="feature6Title">收藏与困难本</h3>
+                    <p data-i18n="feature6Desc">一键收藏重点单词，系统自动整理困难本，让薄弱环节反复强化。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots Section -->
+    <section id="science" class="science">
+        <div class="container">
+            <h2 class="section-title" data-i18n="sciTitle">为什么你总是背了就忘？</h2>
+            <p class="section-sub" data-i18n="sciSub">答案藏在艾宾浩斯遗忘曲线里。</p>
+            <div class="curve-card reveal">
+                <div class="curve-chart">
+                    <svg id="curveSvg" viewBox="0 0 560 300" role="img" aria-label="Forgetting curve: cramming vs spaced repetition">
+                        <line class="curve-axis" x1="56" y1="40" x2="56" y2="252"/>
+                        <line class="curve-axis" x1="56" y1="252" x2="544" y2="252"/>
+                        <line class="curve-grid" x1="56" y1="54" x2="544" y2="54"/>
+                        <line class="curve-grid" x1="56" y1="150" x2="544" y2="150"/>
+                        <text class="axis-label" x="50" y="58" text-anchor="end">100%</text>
+                        <text class="axis-label" x="50" y="255" text-anchor="end">0%</text>
+                        <path class="curve-anim curve-cram" d="M56 54 C110 150 150 205 210 215 C300 228 420 235 544 238"/>
+                        <path class="curve-anim curve-space" d="M56 54 C100 74 130 84 150 92 L150 58 C195 70 225 78 250 88 L250 56 C300 66 330 72 360 78 L360 52 C400 60 430 64 460 70 L460 48 C495 52 520 56 544 60"/>
+                        <circle class="curve-dot" cx="150" cy="58" r="4.5"/>
+                        <circle class="curve-dot" cx="250" cy="56" r="4.5"/>
+                        <circle class="curve-dot" cx="360" cy="52" r="4.5"/>
+                        <circle class="curve-dot" cx="460" cy="48" r="4.5"/>
+                        <text class="axis-label" x="300" y="285" text-anchor="middle" data-i18n="curveX">时间</text>
+                        <text class="axis-label" transform="rotate(-90 22 146)" x="22" y="146" text-anchor="middle" data-i18n="curveY">记忆保持率</text>
+                    </svg>
+                </div>
+                <div class="curve-copy">
+                    <h2 class="section-title" data-i18n="sciHeading">与遗忘赛跑，而不是死记硬背</h2>
+                    <p data-i18n="sciDesc">死记硬背时，记忆会在几天内快速衰减。间隔重复在你即将遗忘的临界点安排复习，每复习一次，记忆保持得都更久——这正是本 App 的算法核心。</p>
+                    <ul class="curve-legend">
+                        <li><span class="legend-swatch cram" aria-hidden="true"></span><span><span data-i18n="legendCramTitle">死记硬背</span><small data-i18n="legendCramSub">几天内快速遗忘</small></span></li>
+                        <li><span class="legend-swatch space" aria-hidden="true"></span><span><span data-i18n="legendSpaceTitle">间隔重复</span><small data-i18n="legendSpaceSub">每次复习后记得更牢</small></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="screenshots" class="screenshots">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">应用界面预览</h2>
-                <p class="section-subtitle">精心设计的用户界面，为您提供优雅的学习体验</p>
+            <h2 class="section-title" data-i18n="screenshotsTitle">应用截图</h2>
+            <p class="section-sub" data-i18n="screenshotsSub">左右滑动，点击可放大查看。</p>
+            <div class="gallery">
+                <button class="gal-arrow prev" type="button" aria-label="上一张" id="galPrev">‹</button>
+                <div class="gal-track" id="galTrack">
+                    <figure class="shot reveal">
+                        <div class="phone"><img src="images/screenshot-stats.png" alt="选择词汇库界面" width="640" height="1387" loading="lazy" decoding="async"></div>
+                        <figcaption data-i18n="shot1">多考试词库，任你选择</figcaption>
+                    </figure>
+                    <figure class="shot reveal">
+                        <div class="phone"><img src="images/screenshot-home.png" alt="单词学习卡片界面" width="640" height="1387" loading="lazy" decoding="async"></div>
+                        <figcaption data-i18n="shot2">卡片式学习，点击看含义</figcaption>
+                    </figure>
+                    <figure class="shot reveal">
+                        <div class="phone"><img src="images/screenshot-learning.png" alt="学习模式界面" width="640" height="1387" loading="lazy" decoding="async"></div>
+                        <figcaption data-i18n="shot3">认识 / 不认识，快速判断</figcaption>
+                    </figure>
+                    <figure class="shot reveal">
+                        <div class="phone"><img src="images/screenshot-quiz.png" alt="单词收藏界面" width="640" height="1387" loading="lazy" decoding="async"></div>
+                        <figcaption data-i18n="shot4">收藏夹 · 已掌握 · 困难本</figcaption>
+                    </figure>
+                </div>
+                <button class="gal-arrow next" type="button" aria-label="下一张" id="galNext">›</button>
             </div>
-            
-            <div class="screenshots-grid">
-                <div class="screenshot-item">
-                    <img src="./images/screenshot-home.png" alt="主页界面" width="1290" height="2796" loading="lazy" decoding="async">
-                    <h3>智能主页</h3>
-                    <p>个性化学习推荐和进度概览</p>
-                </div>
-                <div class="screenshot-item">
-                    <img src="./images/screenshot-learning.png" alt="学习界面" width="1290" height="2796" loading="lazy" decoding="async">
-                    <h3>学习模式</h3>
-                    <p>沉浸式学习体验，支持手势操作</p>
-                </div>
-                <div class="screenshot-item">
-                    <img src="./images/screenshot-quiz.png" alt="测试界面" width="1290" height="2796" loading="lazy" decoding="async">
-                    <h3>智能测试</h3>
-                    <p>多样化测试题型，检验学习效果</p>
-                </div>
-                <div class="screenshot-item">
-                    <img src="./images/screenshot-stats.png" alt="统计界面" width="1290" height="2796" loading="lazy" decoding="async">
-                    <h3>学习统计</h3>
-                    <p>详细的学习数据分析和进度追踪</p>
-                </div>
+            <div class="gal-dots" id="galDots" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <section class="privacy">
+        <div class="container privacy-card">
+            <div class="privacy-lead">
+                <h2 data-i18n="privacyTitle">你的学习数据，只属于你</h2>
+                <p data-i18n="privacyDesc">无需账号，无需联网，全部词汇与进度都存储在本地设备，卸载即彻底清除。</p>
+            </div>
+            <ul class="privacy-points">
+                <li><span aria-hidden="true">📱</span><span data-i18n="pp1">数据本地存储</span></li>
+                <li><span aria-hidden="true">📶</span><span data-i18n="pp2">离线即可使用</span></li>
+                <li><span aria-hidden="true">🚫</span><span data-i18n="pp3">无任何追踪</span></li>
+                <li><span aria-hidden="true">🎯</span><span data-i18n="pp4">无广告干扰</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faqTitle">常见问题</h2>
+            <div class="faq-list">
+                <details class="faq-item reveal"><summary data-i18n="q1">AI背单词支持哪些考试词汇？</summary><p data-i18n="a1">支持雅思、托福、GRE、GMAT、SAT、商务英语、大学四级、大学六级等多种考试词库，覆盖国际与国内主流考试。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q2">间隔重复算法是如何工作的？</summary><p data-i18n="a2">算法依据遗忘曲线，为每个单词安排复习时机：掌握得好的词复习间隔逐渐拉长，容易忘的词会更频繁出现。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q3">应用需要联网吗？</summary><p data-i18n="a3">不需要。所有词汇数据都存储在设备本地，支持完全离线学习，随时随地都能背单词。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q4">可以收藏和标记困难单词吗？</summary><p data-i18n="a4">可以。你能一键收藏重点单词，系统还会自动整理「困难本」和「已掌握」列表，方便针对性强化。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q5">学习进度会保存吗？</summary><p data-i18n="a5">会。学习进度会自动保存在你的设备上，已学习、已掌握、正确率等数据都会持续记录。</p></details>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
     <section id="download" class="download">
         <div class="container">
             <div class="download-content">
-                <div class="download-text">
-                    <h2 class="download-title">立即开始您的<br><span class="gradient-text">智能学习之旅</span></h2>
-                    <p class="download-description">
-                        免费下载AI背单词，体验最先进的词汇学习技术。
-                        适用于iOS 18.0及以上版本。
-                    </p>
-                    <div class="download-buttons">
-                        <a href="https://apps.apple.com/app/id6748568205" class="app-store-btn" target="_blank" rel="noopener">
-                            <span class="btn-icon">📲</span>
-                            <span class="btn-text">App Store 下载</span>
-                        </a>
-                    </div>
-                    <div class="download-qr">
-                        <img src="images/qr-code.png" alt="扫码下载" width="300" height="300" loading="lazy" decoding="async">
-                        <p>扫码下载</p>
-                    </div>
-                    <div class="download-info">
-                        <div class="info-item">
-                            <span class="info-label">版本</span>
-                            <span class="info-value">1.0.0</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">大小</span>
-                            <span class="info-value">45.2 MB</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">语言</span>
-                            <span class="info-value">中文, English</span>
-                        </div>
-                    </div>
+                <h2 data-i18n="downloadTitle">立即开启智能背词之旅</h2>
+                <p data-i18n="downloadSubtitle">免费下载 AI背单词，让记忆更高效、更持久。</p>
+                <div class="download-buttons">
+                    <a href="https://apps.apple.com/app/id6748568205" class="app-store-badge" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                        <svg viewBox="0 0 150 46" role="img" aria-label="Download on the App Store" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="149" height="45" rx="9" fill="#000" stroke="rgba(255,255,255,.35)"/>
+                            <g transform="translate(13,12) scale(0.85)"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></g>
+                            <text x="42" y="19" fill="#fff" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="8">Download on the</text>
+                            <text x="42" y="35" fill="#fff" font-family="-apple-system,Helvetica,Arial,sans-serif" font-size="16" font-weight="600">App Store</text>
+                        </svg>
+                    </a>
                 </div>
-                <div class="download-image">
-                    <img src="./images/iphone-mockup.png" alt="iPhone上的AI背单词应用" class="iphone-mockup" width="1290" height="2796" loading="lazy" decoding="async">
-                </div>
+                <p class="download-note" data-i18n="downloadNote">需要 iOS 18.0 或更高版本</p>
             </div>
         </div>
     </section>
+    </main>
 
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">常见问题</h2>
-                <p class="section-subtitle">关于AI背单词的常见问题解答</p>
-            </div>
-            
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>AI背单词支持哪些考试词汇？</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>我们支持IELTS、TOEFL、GRE、GMAT、SAT、CET-4、CET-6、专业四级、专业八级、考研英语等多种考试词汇库，以及人教版等教材词汇。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>间隔重复算法是如何工作的？</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>我们采用基于遗忘曲线的间隔重复算法，根据您对每个单词的掌握程度，智能安排复习时间。掌握较好的单词复习间隔会逐渐延长，而需要加强的单词会更频繁地出现。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>应用是否需要网络连接？</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>AI背单词支持离线学习，所有词汇数据都存储在设备本地。您可以随时随地学习，无需担心网络问题。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>如何同步学习进度？</h3>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>学习进度会自动保存在您的设备上。未来版本将支持iCloud同步，让您在多个设备间无缝切换学习。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <span class="logo-mark" aria-hidden="true">AI</span>
-                        <span class="logo-text">AI背单词</span>
-                    </div>
-                    <p class="footer-description">
-                        智能英语词汇学习应用<br>
-                        让学习更高效，让记忆更持久
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">产品</h4>
-                    <ul class="footer-links">
-                        <li><a href="#features">功能特色</a></li>
-                        <li><a href="#screenshots">应用截图</a></li>
-                        <li><a href="https://apps.apple.com/app/id6748568205" target="_blank" rel="noopener">立即下载</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">支持</h4>
-                    <ul class="footer-links">
-                        <li><a href="support.html">用户支持</a></li>
-                        <li><a href="privacy.html">隐私政策</a></li>
-                        <li><a href="terms.html">服务条款</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">联系我们</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; <span id="currentYear">2026</span> WeiProduct. 保留所有权利.</p>
+                <p>&copy; <span id="currentYear">2026</span> <span data-i18n="footerRights">AI背单词. 保留所有权利。</span></p>
+                <p data-i18n="footerMadeBy">Built by WeiProduct</p>
+                <p>Contact: <a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-app">
+            <span class="brand-icon sm" aria-hidden="true"><svg viewBox="0 0 100 100" width="30" height="30"><rect width="100" height="100" rx="24" fill="url(#bg)"/><path d="M50 33 C42 28 30 28 24 31 V72 C30 69 42 69 50 74 C58 69 70 69 76 72 V31 C70 28 58 28 50 33 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M50 33 V74" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span>
+            <div class="sticky-txt"><strong>AI背单词</strong><span data-i18n="stickySub">AI 智能背词 · 免费</span></div>
+        </div>
+        <a href="https://apps.apple.com/app/id6748568205" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="stickyGet">获取</a>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
