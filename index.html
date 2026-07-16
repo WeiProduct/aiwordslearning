@@ -57,6 +57,7 @@
     </script>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
 
     <nav class="navbar" id="navbar">
@@ -69,6 +70,7 @@
             </a>
             <div class="nav-menu">
                 <a href="#how" class="nav-link" data-i18n="navHow">使用流程</a>
+                <a href="#decks" class="nav-link" data-i18n="navDecks">词库</a>
                 <a href="#features" class="nav-link" data-i18n="navFeatures">功能特点</a>
                 <a href="#science" class="nav-link" data-i18n="navScience">记忆科学</a>
                 <a href="#screenshots" class="nav-link" data-i18n="navScreenshots">应用截图</a>
@@ -157,6 +159,7 @@
 
     <section id="how" class="how">
         <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeHow">使用流程</span>
             <h2 class="section-title" data-i18n="howTitle">三步开启高效背词</h2>
             <p class="section-sub" data-i18n="howSub">选好目标，剩下的交给 AI。</p>
             <div class="steps">
@@ -182,8 +185,55 @@
         </div>
     </section>
 
+    <section id="decks" class="decks">
+        <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeDecks">10+ 考试词库 · 18,000+ 词</span>
+            <h2 class="section-title" data-i18n="decksTitle">总有一个词库适合你</h2>
+            <p class="section-sub" data-i18n="decksSub">从出国留学到校园考试，一站备齐。</p>
+            <ul class="decks-grid">
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">IELTS</span>
+                    <div class="deck-info"><h3 data-i18n="deckIelts">雅思</h3><p data-i18n="deckIeltsTag">出国留学</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">TOEFL</span>
+                    <div class="deck-info"><h3 data-i18n="deckToefl">托福</h3><p data-i18n="deckToeflTag">北美申请</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">GRE</span>
+                    <div class="deck-info"><h3 data-i18n="deckGre">GRE 词汇</h3><p data-i18n="deckGreTag">研究生申请</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">GMAT</span>
+                    <div class="deck-info"><h3 data-i18n="deckGmat">GMAT 词汇</h3><p data-i18n="deckGmatTag">商学院申请</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">SAT</span>
+                    <div class="deck-info"><h3 data-i18n="deckSat">SAT 词汇</h3><p data-i18n="deckSatTag">美国本科</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">BEC</span>
+                    <div class="deck-info"><h3 data-i18n="deckBec">商务英语</h3><p data-i18n="deckBecTag">职场进阶</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">CET-4</span>
+                    <div class="deck-info"><h3 data-i18n="deckCet4">大学四级</h3><p data-i18n="deckCet4Tag">大学必备</p></div>
+                </li>
+                <li class="deck-card reveal">
+                    <span class="deck-badge" aria-hidden="true">CET-6</span>
+                    <div class="deck-info"><h3 data-i18n="deckCet6">大学六级</h3><p data-i18n="deckCet6Tag">进阶提升</p></div>
+                </li>
+                <li class="deck-card deck-more reveal">
+                    <span class="deck-badge" aria-hidden="true">＋</span>
+                    <div class="deck-info"><h3 data-i18n="deckMore">更多词库</h3><p data-i18n="deckMoreTag">持续更新中</p></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <section id="features" class="features">
         <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeFeatures">功能特点</span>
             <h2 class="section-title" data-i18n="featuresTitle">核心功能</h2>
             <p class="section-sub" data-i18n="featuresSub">为高效记忆而设计的每一处细节。</p>
             <div class="features-grid">
@@ -221,8 +271,43 @@
         </div>
     </section>
 
+    <section id="who" class="who">
+        <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeWho">适用人群</span>
+            <h2 class="section-title" data-i18n="whoTitle">为每一种学习者设计</h2>
+            <p class="section-sub" data-i18n="whoSub">看看哪一个是你。</p>
+            <div class="who-grid">
+                <div class="persona-card reveal">
+                    <div class="persona-emoji" aria-hidden="true">✈️</div>
+                    <h3 data-i18n="persona1Title">备考留学党</h3>
+                    <p data-i18n="persona1Desc">IELTS·TOEFL 冲分，AI 每天派发该学的新词与该复习的旧词。</p>
+                    <span class="persona-chip" data-i18n="persona1Chip">🎯 10+ 考试词库</span>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-emoji" aria-hidden="true">🎓</div>
+                    <h3 data-i18n="persona2Title">考研 / 四六级学生</h3>
+                    <p data-i18n="persona2Desc">四六级词库＋自动困难本，考前精准查漏补缺。</p>
+                    <span class="persona-chip" data-i18n="persona2Chip">📕 自动困难本</span>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-emoji" aria-hidden="true">🚇</div>
+                    <h3 data-i18n="persona3Title">通勤碎片学习者</h3>
+                    <p data-i18n="persona3Desc">完全离线，地铁里没有信号也能安心刷卡片。</p>
+                    <span class="persona-chip" data-i18n="persona3Chip">📶 100% 离线</span>
+                </div>
+                <div class="persona-card reveal">
+                    <div class="persona-emoji" aria-hidden="true">💼</div>
+                    <h3 data-i18n="persona4Title">职场充电者</h3>
+                    <p data-i18n="persona4Desc">商务英语词库＋英美标准发音，开会发言不怯场。</p>
+                    <span class="persona-chip" data-i18n="persona4Chip">🔊 英美双音</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="science" class="science">
         <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeScience">记忆科学</span>
             <h2 class="section-title" data-i18n="sciTitle">为什么你总是背了就忘？</h2>
             <p class="section-sub" data-i18n="sciSub">答案藏在艾宾浩斯遗忘曲线里。</p>
             <div class="curve-card reveal">
@@ -253,11 +338,68 @@
                     </ul>
                 </div>
             </div>
+            <div class="sched-card reveal">
+                <div class="sched-copy">
+                    <h3 data-i18n="schedTitle">亲手试试这个算法</h3>
+                    <p data-i18n="schedDesc">对下面的单词做出判断，看看下一次复习会被安排到什么时候。</p>
+                    <div class="sched-word">
+                        <span class="sched-w">resilient</span>
+                        <span class="sched-wdef" data-i18n="schedDef">有韧性的；能迅速恢复的</span>
+                    </div>
+                    <div class="sched-actions">
+                        <button class="fc-btn fc-know" id="schedKnow" type="button" data-i18n="schedKnow">认识 ✓</button>
+                        <button class="fc-btn fc-again" id="schedFuzzy" type="button" data-i18n="schedFuzzy">模糊 🤔</button>
+                    </div>
+                    <button class="sched-reset" id="schedReset" type="button" data-i18n="schedReset">重置演示</button>
+                </div>
+                <div class="sched-viz">
+                    <div class="sched-status"><span data-i18n="schedNextLabel">下次复习</span><strong id="schedNextVal">1 天后</strong></div>
+                    <div class="sched-timeline" id="schedTimeline">
+                        <span class="sched-node" data-i18n="schedT0">今天</span>
+                        <span class="sched-node" data-i18n="schedT1">1天</span>
+                        <span class="sched-node" data-i18n="schedT3">3天</span>
+                        <span class="sched-node" data-i18n="schedT7">7天</span>
+                        <span class="sched-node" data-i18n="schedT15">15天</span>
+                        <span class="sched-node" data-i18n="schedT30">30天</span>
+                    </div>
+                    <p class="sched-caption" data-i18n="schedCaption">记得越牢，复习越稀疏——这就是间隔重复。</p>
+                    <p class="sched-note" data-i18n="schedNote">* 间隔为演示示意，实际由算法根据你的表现动态调整。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why" class="compare">
+        <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeWhy">横向对比</span>
+            <h2 class="section-title" data-i18n="whyTitle">为什么选 AI背单词？</h2>
+            <p class="section-sub" data-i18n="whySub">与传统背词方式的对比。</p>
+            <div class="table-scroll reveal">
+                <table class="cmp-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="cmpDim">对比维度</th>
+                            <th scope="col" data-i18n="cmpPaper">纸质词表死背</th>
+                            <th scope="col" data-i18n="cmpGeneric">普通卡片 App</th>
+                            <th scope="col" class="cmp-ours"><span class="cmp-tag" data-i18n="cmpOursTag">本 App</span><span data-i18n="cmpOurs">AI背单词</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row" data-i18n="cmpR1">复习时机</th><td data-i18n="cmpR1a">✗ 凭感觉</td><td data-i18n="cmpR1b">〜 固定顺序</td><td class="cmp-ours" data-i18n="cmpR1c">✓ 遗忘曲线自动安排</td></tr>
+                        <tr><th scope="row" data-i18n="cmpR2">每日计划</th><td data-i18n="cmpR2a">✗ 自己排</td><td data-i18n="cmpR2b">〜 手动建卡</td><td class="cmp-ours" data-i18n="cmpR2c">✓ AI 自动生成</td></tr>
+                        <tr><th scope="row" data-i18n="cmpR3">弱点管理</th><td data-i18n="cmpR3a">✗ 无</td><td data-i18n="cmpR3b">〜 手动标记</td><td class="cmp-ours" data-i18n="cmpR3c">✓ 自动困难本</td></tr>
+                        <tr><th scope="row" data-i18n="cmpR4">发音</th><td data-i18n="cmpR4a">✗ 无</td><td data-i18n="cmpR4b">〜 部分支持</td><td class="cmp-ours" data-i18n="cmpR4c">✓ 英美双音</td></tr>
+                        <tr><th scope="row" data-i18n="cmpR5">离线使用</th><td data-i18n="cmpR5a">✓ 是</td><td data-i18n="cmpR5b">〜 看应用</td><td class="cmp-ours" data-i18n="cmpR5c">✓ 100% 离线</td></tr>
+                        <tr><th scope="row" data-i18n="cmpR6">广告与追踪</th><td data-i18n="cmpR6a">—</td><td data-i18n="cmpR6b">✗ 常见</td><td class="cmp-ours" data-i18n="cmpR6c">✓ 0 广告 · 0 追踪</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
     <section id="screenshots" class="screenshots">
         <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeShots">界面预览</span>
             <h2 class="section-title" data-i18n="screenshotsTitle">应用截图</h2>
             <p class="section-sub" data-i18n="screenshotsSub">左右滑动，点击可放大查看。</p>
             <div class="gallery">
@@ -303,6 +445,7 @@
 
     <section id="faq" class="faq">
         <div class="container">
+            <span class="eyebrow eyebrow-sm" data-i18n="eyeFaq">答疑解惑</span>
             <h2 class="section-title" data-i18n="faqTitle">常见问题</h2>
             <div class="faq-list">
                 <details class="faq-item reveal"><summary data-i18n="q1">AI背单词支持哪些考试词汇？</summary><p data-i18n="a1">支持雅思、托福、GRE、GMAT、SAT、商务英语、大学四级、大学六级等多种考试词库，覆盖国际与国内主流考试。</p></details>
@@ -337,10 +480,51 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col footer-brand">
+                    <a class="nav-brand" href="#" aria-label="AI背单词">
+                        <span class="brand-icon" aria-hidden="true">
+                            <svg viewBox="0 0 100 100" width="34" height="34"><rect width="100" height="100" rx="24" fill="url(#bg)"/><path d="M50 33 C42 28 30 28 24 31 V72 C30 69 42 69 50 74 C58 69 70 69 76 72 V31 C70 28 58 28 50 33 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M50 33 V74" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>
+                        </span>
+                        <span class="brand-name">AI背单词</span>
+                    </a>
+                    <p class="footer-tag" data-i18n="footerTag">AI 驱动的智能词汇学习，基于遗忘曲线，让每个单词都记得更牢。</p>
+                    <a href="https://apps.apple.com/app/id6748568205" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+                        <svg class="apple-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span data-i18n="downloadBtn">App Store 下载</span>
+                    </a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footerProduct">产品</h4>
+                    <a href="#how" data-i18n="navHow">使用流程</a>
+                    <a href="#decks" data-i18n="navDecks">词库</a>
+                    <a href="#features" data-i18n="navFeatures">功能特点</a>
+                    <a href="#science" data-i18n="navScience">记忆科学</a>
+                    <a href="#faq" data-i18n="navFaq">常见问题</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footerSupport">支持</h4>
+                    <a href="support.html" data-i18n="footerSupportLink">支持与帮助</a>
+                    <a href="privacy.html" data-i18n="footerPrivacy">隐私政策</a>
+                    <a href="terms.html" data-i18n="footerTerms">服务条款</a>
+                    <a href="mailto:1597498880weiproduct@gmail.com" data-i18n="footerContact">联系我们</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footerPrefs">偏好</h4>
+                    <button class="footer-pref" id="footerTheme" type="button">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                        <span data-i18n="footerThemeLabel">深色 / 浅色模式</span>
+                    </button>
+                    <button class="footer-pref" id="footerLang" type="button">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.4 3.8 5.6 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.6-3.8-9S9.5 5.4 12 3z"/></svg>
+                        <span data-i18n="footerLangLabel">English</span>
+                    </button>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; <span id="currentYear">2026</span> <span data-i18n="footerRights">AI背单词. 保留所有权利。</span></p>
                 <p data-i18n="footerMadeBy">Built by WeiProduct</p>
-                <p>Contact: <a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></p>
+                <p><a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></p>
             </div>
         </div>
     </footer>
