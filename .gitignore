@@ -1,0 +1,26 @@
+# Xcode
+DerivedData/
+build/
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets — never commit real keys
+.env
+.env.local
+Secrets.plist
+*.xcconfig.local
