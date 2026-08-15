@@ -1,0 +1,68 @@
+name: Check image aspect-ratio safeguards
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-image-ratios:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify responsive image safeguards
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          import sys
+
+          files = [
+              path for path in Path(".").rglob("*")
+              if path.suffix.lower() in {".css", ".html", ".htm"}
+              and ".git" not in path.parts
+          ]
+          sources = []
+          for path in files:
+              text = path.read_text(encoding="utf-8", errors="replace")
+              if path.suffix.lower() == ".css":
+                  sources.append((str(path), text))
+              else:
+                  for index, style in enumerate(re.findall(r"<style\b[^>]*>(.*?)</style>", text, re.I | re.S), 1):
+                      sources.append((f"{path}#style-{index}", style))
+
+          blocks = [
+              (source_name, match)
+              for source_name, source in sources
+              for match in re.finditer(r"([^{}]+)\{([^{}]*)\}", source, re.S)
+          ]
+
+          has_global_guard = any(
+              any(selector.strip() == "img" for selector in match.group(1).split(","))
+              and re.search(r"\bheight\s*:\s*auto\b", match.group(2), re.I)
+              for _source_name, match in blocks
+          )
+          if not has_global_guard:
+              print("Missing global img { height: auto; } safeguard.")
+              sys.exit(1)
+
+          errors = []
+          for source_name, match in blocks:
+              selector, declarations = match.group(1), match.group(2)
+              if "img" not in selector.lower():
+                  continue
+              if not re.search(r"phone|screen|shot|mockup|device", selector, re.I):
+                  continue
+              height = re.search(r"\bheight\s*:\s*([^;}]*)", declarations, re.I)
+              safe_fit = re.search(r"\bobject-fit\s*:\s*(contain|cover)\b", declarations, re.I)
+              if height and height.group(1).strip().lower() != "auto" and not safe_fit:
+                  errors.append(f"{source_name}: {selector.strip()}: height is {height.group(1).strip()}")
+
+          if errors:
+              print("Potential screenshot stretching rules found:")
+              print("\n".join(f"- {error}" for error in errors))
+              sys.exit(1)
+
+          print(f"Checked {len(files)} HTML/CSS files; image ratio safeguards are present.")
